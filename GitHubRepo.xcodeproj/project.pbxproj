@@ -124,9 +124,10 @@
 			isa = PBXGroup;
 			children = (
 				23ED73442639887D00146DFC /* Helper */,
+				23ED737C26398E4D00146DFC /* Core Data */,
+				23ED7497263A16B700146DFC /* Networking */,
 				23ED7336263987AE00146DFC /* Controllers */,
-				23ED7337263987B800146DFC /* Common */,
-				23ED7483263A14FC00146DFC /* GitHubRepo.xcdatamodeld */,
+				23ED7337263987B800146DFC /* Resources */,
 			);
 			path = GitHubRepo;
 			sourceTree = "<group>";
@@ -152,13 +153,6 @@
 			path = GitHubRepoUITests;
 			sourceTree = "<group>";
 		};
-		23ED7335263987A700146DFC /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		23ED7336263987AE00146DFC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,7 +162,7 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		23ED7337263987B800146DFC /* Common */ = {
+		23ED7337263987B800146DFC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				23ED72F626397E1E00146DFC /* AppDelegate.swift */,
@@ -176,13 +170,12 @@
 				23ED730426397E1F00146DFC /* LaunchScreen.storyboard */,
 				23ED730726397E1F00146DFC /* Info.plist */,
 			);
-			path = Common;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		23ED733C2639883800146DFC /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				23ED7335263987A700146DFC /* Model */,
 				23ED733D2639883F00146DFC /* View */,
 			);
 			path = Home;
@@ -201,8 +194,6 @@
 			isa = PBXGroup;
 			children = (
 				23ED74AD263A170800146DFC /* Constant */,
-				23ED7497263A16B700146DFC /* Networking */,
-				23ED737C26398E4D00146DFC /* Core Data */,
 				23ED73452639888700146DFC /* Request */,
 			);
 			path = Helper;
@@ -222,6 +213,7 @@
 			children = (
 				23ED7456263A119700146DFC /* Data */,
 				23ED7451263A118900146DFC /* CoreDataManager.swift */,
+				23ED7483263A14FC00146DFC /* GitHubRepo.xcdatamodeld */,
 			);
 			path = "Core Data";
 			sourceTree = "<group>";
@@ -590,7 +582,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VQU76VH8CY;
-				INFOPLIST_FILE = GitHubRepo/Common/Info.plist;
+				INFOPLIST_FILE = GitHubRepo/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -609,7 +601,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VQU76VH8CY;
-				INFOPLIST_FILE = GitHubRepo/Common/Info.plist;
+				INFOPLIST_FILE = GitHubRepo/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

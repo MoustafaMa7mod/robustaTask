@@ -9,6 +9,7 @@ import Foundation
 import CoreData
 
 class Networking{
+    
     static let shared = Networking(networkRequest: Request.shared)
     private let networkRequest:Request!
     
@@ -30,7 +31,7 @@ class Networking{
             
             guard let data = data else {return}
             let repositoryModel = self.decode(type: [RepositoryModel].self, data: data)
-//            CoreDataManager.shared.insertIntoLocalData(data: repositoryModel ?? [])
+            CoreDataManager.shared.storeResponse(dataModel: repositoryModel ?? [])
             completion(true)
             
         }
