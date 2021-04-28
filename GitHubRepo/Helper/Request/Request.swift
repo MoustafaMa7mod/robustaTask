@@ -15,18 +15,28 @@ class Request{
         self.session = session
     }
 
-    func request(url:URL ,parameters:Any? = nil,headers:[String:String] = ["Accept":"application/json","Content-Type":"application/json"],completion: @escaping (Data?,URLResponse?,Error?)-> Void){
+    func request(url:URL , headers:[String:String] = ["Accept":"application/json","Content-Type":"application/json"],completion: @escaping (Data?, Error?)-> Void){
         
         var request = URLRequest(url:url,cachePolicy: .reloadIgnoringLocalCacheData)
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
         let task = session.dataTask(with: request) { (data , response, error) in
-            DispatchQueue.main.async {
-                completion(data,response,error)
+            if let error = error {
+                completion(nil, error)
+                return
             }
+            
+            guard let data = data else {
+                completion(nil, error)
+                return
+            }
+//            DispatchQueue.main.async {
+                completion(data ,nil)
+//            }
         }
         
         task.resume()
         
-    }    
- }
+    }
+}
+    
