@@ -19,12 +19,14 @@
 		23ED736C26398B1500146DFC /* RequestProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ED734B263988FA00146DFC /* RequestProtocols.swift */; };
 		23ED7447263A113900146DFC /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ED7446263A113900146DFC /* MockURLSession.swift */; };
 		23ED7452263A118900146DFC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ED7451263A118900146DFC /* CoreDataManager.swift */; };
-		23ED7458263A11AF00146DFC /* Repositry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ED7457263A11AF00146DFC /* Repositry.swift */; };
 		23ED7485263A14FC00146DFC /* GitHubRepo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 23ED7483263A14FC00146DFC /* GitHubRepo.xcdatamodeld */; };
 		23ED748E263A161D00146DFC /* OwnerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ED748D263A161D00146DFC /* OwnerModel.swift */; };
 		23ED7493263A163300146DFC /* RepositoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ED7492263A163300146DFC /* RepositoryModel.swift */; };
 		23ED74A9263A16E700146DFC /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ED74A8263A16E700146DFC /* Networking.swift */; };
 		23ED74AF263A170800146DFC /* URLS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ED74AE263A170800146DFC /* URLS.swift */; };
+		23ED74B6263A189A00146DFC /* NetworkingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ED74B5263A189A00146DFC /* NetworkingTest.swift */; };
+		23ED74C2263A1C3100146DFC /* Repository+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ED74C0263A1C3100146DFC /* Repository+CoreDataClass.swift */; };
+		23ED74C3263A1C3100146DFC /* Repository+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ED74C1263A1C3100146DFC /* Repository+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,12 +65,14 @@
 		23ED7350263989B600146DFC /* RequestTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTest.swift; sourceTree = "<group>"; };
 		23ED7446263A113900146DFC /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		23ED7451263A118900146DFC /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		23ED7457263A11AF00146DFC /* Repositry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repositry.swift; sourceTree = "<group>"; };
 		23ED7484263A14FC00146DFC /* GitHubRepo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GitHubRepo.xcdatamodel; sourceTree = "<group>"; };
 		23ED748D263A161D00146DFC /* OwnerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerModel.swift; sourceTree = "<group>"; };
 		23ED7492263A163300146DFC /* RepositoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryModel.swift; sourceTree = "<group>"; };
 		23ED74A8263A16E700146DFC /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		23ED74AE263A170800146DFC /* URLS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLS.swift; sourceTree = "<group>"; };
+		23ED74B5263A189A00146DFC /* NetworkingTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingTest.swift; sourceTree = "<group>"; };
+		23ED74C0263A1C3100146DFC /* Repository+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Repository+CoreDataClass.swift"; sourceTree = "<group>"; };
+		23ED74C1263A1C3100146DFC /* Repository+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Repository+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +137,7 @@
 				23ED7445263A112900146DFC /* Mockups */,
 				23ED731026397E1F00146DFC /* GitHubRepoTests.swift */,
 				23ED7350263989B600146DFC /* RequestTest.swift */,
+				23ED74B5263A189A00146DFC /* NetworkingTest.swift */,
 				23ED731226397E1F00146DFC /* Info.plist */,
 			);
 			path = GitHubRepoTests;
@@ -215,7 +220,7 @@
 		23ED737C26398E4D00146DFC /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				23ED7456263A119700146DFC /* Entity */,
+				23ED7456263A119700146DFC /* Data */,
 				23ED7451263A118900146DFC /* CoreDataManager.swift */,
 			);
 			path = "Core Data";
@@ -229,12 +234,13 @@
 			path = Mockups;
 			sourceTree = "<group>";
 		};
-		23ED7456263A119700146DFC /* Entity */ = {
+		23ED7456263A119700146DFC /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				23ED7457263A11AF00146DFC /* Repositry.swift */,
+				23ED74C0263A1C3100146DFC /* Repository+CoreDataClass.swift */,
+				23ED74C1263A1C3100146DFC /* Repository+CoreDataProperties.swift */,
 			);
-			path = Entity;
+			path = Data;
 			sourceTree = "<group>";
 		};
 		23ED748C263A160F00146DFC /* Model */ = {
@@ -393,9 +399,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				23ED7452263A118900146DFC /* CoreDataManager.swift in Sources */,
+				23ED74C3263A1C3100146DFC /* Repository+CoreDataProperties.swift in Sources */,
 				23ED74A9263A16E700146DFC /* Networking.swift in Sources */,
-				23ED7458263A11AF00146DFC /* Repositry.swift in Sources */,
 				23ED736C26398B1500146DFC /* RequestProtocols.swift in Sources */,
+				23ED74C2263A1C3100146DFC /* Repository+CoreDataClass.swift in Sources */,
 				23ED74AF263A170800146DFC /* URLS.swift in Sources */,
 				23ED7493263A163300146DFC /* RepositoryModel.swift in Sources */,
 				23ED7347263988AA00146DFC /* Request.swift in Sources */,
@@ -413,6 +420,7 @@
 				23ED7447263A113900146DFC /* MockURLSession.swift in Sources */,
 				23ED731126397E1F00146DFC /* GitHubRepoTests.swift in Sources */,
 				23ED7351263989B600146DFC /* RequestTest.swift in Sources */,
+				23ED74B6263A189A00146DFC /* NetworkingTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

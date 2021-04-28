@@ -9,9 +9,13 @@ import Foundation
 import CoreData
 
 class Networking{
-    static let shared = Networking()
-    private init() {}
+    static let shared = Networking(networkRequest: Request.shared)
+    private let networkRequest:Request!
     
+    init(networkRequest:Request) {
+        self.networkRequest = networkRequest
+    }
+
     func getData(completion: @escaping(Bool) -> Void) {
         
         guard let url = URL(string: URLS.repositoriesURL) else {

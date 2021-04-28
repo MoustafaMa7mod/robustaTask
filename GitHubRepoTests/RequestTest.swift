@@ -19,11 +19,11 @@ class RequestTest: XCTestCase {
     }
     func test_get_request_with_URL() {
 
-        guard let url = URL(string: "https://api.github.com/repositories") else {
+        guard let url = URL(string: URLS.repositoriesURL) else {
             fatalError("URL can't be empty")
         }
         
-        request.request(url: url) { (data, response,error) in
+        request.request(url: url) { (data ,error) in
             // Return data
         }
         
@@ -36,11 +36,11 @@ class RequestTest: XCTestCase {
         let dataTask = MockURLSessionDataTask()
         session.nextDataTask = dataTask
         
-        guard let url = URL(string: "https://api.github.com/repositories") else {
+        guard let url = URL(string: URLS.repositoriesURL) else {
             fatalError("URL can't be empty")
         }
         
-        request.request(url: url) { (data, response,error) in
+        request.request(url: url) { (data ,error) in
             // Return data
         }
 
@@ -53,11 +53,11 @@ class RequestTest: XCTestCase {
         session.nextData = expectedData
         
         var actualData: Data?
-        guard let url = URL(string: "https://api.github.com/repositories") else {
+        guard let url = URL(string: URLS.repositoriesURL) else {
             fatalError("URL can't be empty")
         }
         let exp = expectation(description: "request")
-         request.request(url: url) { (data, url,error) in
+         request.request(url: url) { (data ,error) in
             
             actualData = data
             exp.fulfill()
