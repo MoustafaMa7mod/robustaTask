@@ -13,16 +13,21 @@ class HomeViewModel {
     var repositryArray = [Repository]()
     
     func getDataFromAPI(completion: @escaping(String?)-> Void)  {
-        Networking.shared.getData { [weak self]loadData in
-            print("load data from api")
-            if loadData {
-                self?.repositryArray = CoreDataManager.shared.fetchAllData() ?? []
-                completion(nil)
-            }else{
-                completion("Faild To load Data From API")
+        repositryArray = CoreDataManager.shared.fetchAllData() ?? []
+
+        if repositryArray.count == 0 {
+            Networking.shared.getData { [weak self]loadData in
+                print("load data from api")
+                if loadData {
+                    self?.repositryArray = CoreDataManager.shared.fetchAllData() ?? []
+                    completion(nil)
+                }else{
+                    completion("Faild To load Data From API")
+                }
+                
             }
-            
         }
+        
     }
     
     func getCountOfRepositryArray() -> Int {

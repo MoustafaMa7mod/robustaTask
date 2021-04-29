@@ -31,6 +31,7 @@ class Networking{
             
             guard let data = data else {return}
             let repositoryModel = self.decode(type: [RepositoryModel].self, data: data)
+            CoreDataManager.shared.clearDatabase()
             CoreDataManager.shared.insertData(dataModel: repositoryModel ?? [])
             completion(true)
             

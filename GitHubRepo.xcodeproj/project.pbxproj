@@ -12,6 +12,8 @@
 		2358D6E5263ACF1900B2FF5C /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2358D6E4263ACF1900B2FF5C /* UITableView+Extensions.swift */; };
 		2358D6ED263ACFB300B2FF5C /* HomeVC+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2358D6EC263ACFB300B2FF5C /* HomeVC+TableView.swift */; };
 		2358D6F6263AD03600B2FF5C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2358D6F5263AD03600B2FF5C /* HomeViewModel.swift */; };
+		2358D6FE263AD92E00B2FF5C /* UIImageView+Cashing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2358D6FD263AD92E00B2FF5C /* UIImageView+Cashing.swift */; };
+		2358D703263ADAA900B2FF5C /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2358D702263ADAA900B2FF5C /* UIView.swift */; };
 		23ED72F726397E1E00146DFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ED72F626397E1E00146DFC /* AppDelegate.swift */; };
 		23ED72FB26397E1E00146DFC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ED72FA26397E1E00146DFC /* HomeViewController.swift */; };
 		23ED72FE26397E1E00146DFC /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23ED72FC26397E1E00146DFC /* HomeViewController.storyboard */; };
@@ -59,6 +61,8 @@
 		2358D6E4263ACF1900B2FF5C /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
 		2358D6EC263ACFB300B2FF5C /* HomeVC+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+TableView.swift"; sourceTree = "<group>"; };
 		2358D6F5263AD03600B2FF5C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		2358D6FD263AD92E00B2FF5C /* UIImageView+Cashing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Cashing.swift"; sourceTree = "<group>"; };
+		2358D702263ADAA900B2FF5C /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		23ED72F326397E1E00146DFC /* GitHubRepo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubRepo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23ED72F626397E1E00146DFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23ED72FA26397E1E00146DFC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +131,8 @@
 			isa = PBXGroup;
 			children = (
 				2358D6E4263ACF1900B2FF5C /* UITableView+Extensions.swift */,
+				2358D6FD263AD92E00B2FF5C /* UIImageView+Cashing.swift */,
+				2358D702263ADAA900B2FF5C /* UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -437,6 +443,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23ED7452263A118900146DFC /* CoreDataManager.swift in Sources */,
+				2358D6FE263AD92E00B2FF5C /* UIImageView+Cashing.swift in Sources */,
 				2358D6E5263ACF1900B2FF5C /* UITableView+Extensions.swift in Sources */,
 				23ED74C3263A1C3100146DFC /* Repository+CoreDataProperties.swift in Sources */,
 				2358D6F6263AD03600B2FF5C /* HomeViewModel.swift in Sources */,
@@ -451,6 +458,7 @@
 				2358D6ED263ACFB300B2FF5C /* HomeVC+TableView.swift in Sources */,
 				23ED7485263A14FC00146DFC /* GitHubRepo.xcdatamodeld in Sources */,
 				23ED72FB26397E1E00146DFC /* HomeViewController.swift in Sources */,
+				2358D703263ADAA900B2FF5C /* UIView.swift in Sources */,
 				23ED72F726397E1E00146DFC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
