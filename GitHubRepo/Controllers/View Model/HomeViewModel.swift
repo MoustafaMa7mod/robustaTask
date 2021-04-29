@@ -34,22 +34,12 @@ class HomeViewModel {
     }
     
     func searchRepositryName(_ name: String) {
-        self.repositriesArrayFilter.removeAll()
         if name.count != 0 {
-            for repo in self.repositriesArray {
-                if let repoName = repo.repositoryName {
-                    let range = repoName.lowercased().range(of: name.lowercased(), options: .caseInsensitive, range: nil, locale: nil)
-                    if range != nil {
-                        self.repositriesArrayFilter.append(repo)
-                    }
-                }
-                
-            }
-        }else{
-            for repo in self.repositriesArray {
-                self.repositriesArrayFilter.append(repo)
+            self.repositriesArrayFilter = repositriesArray.filter { (repo: Repository) -> Bool in
+                return repo.repositoryName?.lowercased().contains(name.lowercased()) ?? false
             }
         }
+        
     }
     
     func getCountOfRepositryArray() -> Int {

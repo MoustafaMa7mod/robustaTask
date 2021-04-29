@@ -29,6 +29,7 @@ class HomeViewController: UIViewController {
     private func tableViewConfig(){
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.tableFooterView = UIView()
         tableView.registerCellNib(cellClass: RepositryCell.self)
     }
     
