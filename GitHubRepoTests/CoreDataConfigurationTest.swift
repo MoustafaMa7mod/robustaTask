@@ -1,14 +1,15 @@
 //
-//  CoreDataController.swift
-//  GitHubRepo
+//  CoreDataConfigurationTest.swift
+//  GitHubRepoTests
 //
 //  Created by Mostafa Mahmoud on 4/29/21.
 //
 
-import UIKit
+import Foundation
+@testable import GitHubRepo
 import CoreData
 
-struct CoreDataConfiguration {
+struct CoreDataConfigurationTest {
     
     static let shared = CoreDataConfiguration()
     
@@ -20,7 +21,7 @@ struct CoreDataConfiguration {
     init (){
         persistentContainer = NSPersistentContainer(name: modelName)
         let description = persistentContainer.persistentStoreDescriptions.first
-        description?.type = NSSQLiteStoreType
+        description?.type = NSInMemoryStoreType
         persistentContainer.loadPersistentStores{ storeDescription, error in
             guard error == nil else{
                 fatalError("Can't Load Persistent Stores")
@@ -38,3 +39,4 @@ struct CoreDataConfiguration {
     }
     
 }
+

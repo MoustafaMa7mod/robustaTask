@@ -11,20 +11,31 @@ import CoreData
 class CoreDataManager {
     
     static let shared = CoreDataManager()
-    let coreDataConfiguration = CoreDataConfiguration(modelName: "GitHubRepo")
+
+    var backgroundContext:NSManagedObjectContext!
+    var mainContext:NSManagedObjectContext
+
+    init(mainContext: NSManagedObjectContext = CoreDataConfiguration.shared.mainContext , backgroundContext:NSManagedObjectContext =  CoreDataConfiguration.shared.backgroundContext) {
+        self.mainContext = mainContext
+        self.backgroundContext = backgroundContext
+    }
+    
     
     /// Fetch All Stored Requests From the Store
-    func fetchAll()->[Repository]?{
+    func fetchAllData()->[Repository]?{
         let fetchReuest:NSFetchRequest<Repository> = Repository.fetchRequest()
         fetchReuest.returnsObjectsAsFaults = false
-        let result = try? self.coreDataConfiguration.viewContext.fetch(fetchReuest)
+        var result: [Repository]?
+        mainContext.performAndWait {
+            result = try? self.mainContext.fetch(fetchReuest)
+        }
+         
         return result
     }
     
-    func storeResponse(dataModel:[RepositoryModel]){
-        let backgroundContext = coreDataConfiguration.backgroundContext
-        removeAll()
-        backgroundContext?.perform {
+    func insertData(dataModel:[RepositoryModel]){
+        let backgroundContext = self.backgroundContext
+        backgroundContext?.performAndWait {
             dataModel.forEach { data in
                 let repositoryToStore = Repository(context: backgroundContext!)
                 repositoryToStore.repositoryName = data.name
@@ -36,20 +47,20 @@ class CoreDataManager {
         }
     }
     
-    func removeAll(){
-        let backgroundContext = coreDataConfiguration.backgroundContext
-        backgroundContext?.perform {
+    func clearDatabase(){
+        let backgroundContext = self.backgroundContext
+        backgroundContext?.performAndWait {
             let fetchRequest:NSFetchRequest<NSFetchRequestResult> = Repository.fetchRequest()
             let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
             let  _ = try? backgroundContext?.execute(deleteRequest)
-            print("data removed")
+            print("all data removed successfully")
             
         }
         
     }
     
     fileprivate func saveContext(){
-        let backgroundContext = coreDataConfiguration.backgroundContext
+        let backgroundContext = self.backgroundContext
         if let backgroundContext = backgroundContext, backgroundContext.hasChanges{
             print("data saved successfully")
             try? backgroundContext.save()

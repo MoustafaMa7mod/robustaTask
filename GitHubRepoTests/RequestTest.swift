@@ -17,6 +17,11 @@ class RequestTest: XCTestCase {
         super.setUp()
         request = Request(session: session)
     }
+    override func tearDown() {
+        super.tearDown()
+        request = nil
+    }
+    
     func test_get_request_with_URL() {
 
         guard let url = URL(string: URLS.repositoriesURL) else {

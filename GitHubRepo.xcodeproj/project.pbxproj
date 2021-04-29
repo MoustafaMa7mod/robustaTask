@@ -28,6 +28,8 @@
 		23ED74C2263A1C3100146DFC /* Repository+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ED74C0263A1C3100146DFC /* Repository+CoreDataClass.swift */; };
 		23ED74C3263A1C3100146DFC /* Repository+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ED74C1263A1C3100146DFC /* Repository+CoreDataProperties.swift */; };
 		23ED74DD263A2F3B00146DFC /* CoreDataConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ED74DC263A2F3B00146DFC /* CoreDataConfiguration.swift */; };
+		23ED74F0263A3CE500146DFC /* CoreDataConfigurationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ED74EF263A3CE500146DFC /* CoreDataConfigurationTest.swift */; };
+		23ED74FB263A3D6F00146DFC /* CoreDataManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ED74FA263A3D6F00146DFC /* CoreDataManagerTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		23ED74C0263A1C3100146DFC /* Repository+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Repository+CoreDataClass.swift"; sourceTree = "<group>"; };
 		23ED74C1263A1C3100146DFC /* Repository+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Repository+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		23ED74DC263A2F3B00146DFC /* CoreDataConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataConfiguration.swift; sourceTree = "<group>"; };
+		23ED74EF263A3CE500146DFC /* CoreDataConfigurationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataConfigurationTest.swift; sourceTree = "<group>"; };
+		23ED74FA263A3D6F00146DFC /* CoreDataManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManagerTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +145,8 @@
 				23ED731026397E1F00146DFC /* GitHubRepoTests.swift */,
 				23ED7350263989B600146DFC /* RequestTest.swift */,
 				23ED74B5263A189A00146DFC /* NetworkingTest.swift */,
+				23ED74FA263A3D6F00146DFC /* CoreDataManagerTest.swift */,
+				23ED74EF263A3CE500146DFC /* CoreDataConfigurationTest.swift */,
 				23ED731226397E1F00146DFC /* Info.plist */,
 			);
 			path = GitHubRepoTests;
@@ -413,8 +419,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23ED74FB263A3D6F00146DFC /* CoreDataManagerTest.swift in Sources */,
 				23ED7447263A113900146DFC /* MockURLSession.swift in Sources */,
 				23ED731126397E1F00146DFC /* GitHubRepoTests.swift in Sources */,
+				23ED74F0263A3CE500146DFC /* CoreDataConfigurationTest.swift in Sources */,
 				23ED7351263989B600146DFC /* RequestTest.swift in Sources */,
 				23ED74B6263A189A00146DFC /* NetworkingTest.swift in Sources */,
 			);

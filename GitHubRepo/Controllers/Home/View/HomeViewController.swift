@@ -19,7 +19,7 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func getData(_ sender: Any) {
-        print(CoreDataManager.shared.fetchAll())
+        print(CoreDataManager.shared.fetchAllData())
     }
     
 

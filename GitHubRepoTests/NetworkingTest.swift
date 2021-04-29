@@ -13,10 +13,16 @@ class NetworkingTest: XCTestCase {
     var networking:Networking!
     let session = MockURLSession()
 
-    override func setUpWithError() throws {
+    override func setUp() {
+        super.setUp()
         let request = Request(session: session)
         networking = Networking(networkRequest: request)
-
+    }
+    
+    
+    override func tearDown() {
+        super.tearDown()
+        networking = nil
     }
 
 
