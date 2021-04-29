@@ -32,9 +32,9 @@ class RepositryCell: UITableViewCell {
         self.repositryNameLabel.text = data.repositoryName
         self.reposityOwnerNameLabel.text = data.ownerName
         self.creationDateLabel.text = creationData
-        guard let avterImage = URL(string: data.ownerAvaterUrl ?? "") else {
+        guard let avterImage = NSURL(string: data.ownerAvaterUrl ?? "") else {
             return
         }
-        self.repositryOwnerImage.downloadImage(from: avterImage)
+        self.repositryOwnerImage.downloadImage(url: avterImage)
     }
 }

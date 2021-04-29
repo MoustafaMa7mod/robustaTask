@@ -6,22 +6,33 @@
 //
 
 import UIKit
+   fileprivate let imageCache =  NSCache<AnyObject, AnyObject>()
 
 extension UIImageView {
-    func downloadImage(from url: URL, contentMode mode: ContentMode = .scaleAspectFit) {
-        contentMode = mode
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard
-                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
-                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-                let data = data, error == nil,
-                let image = UIImage(data: data)
-                else { return }
-            DispatchQueue.main.async() { [weak self] in
-                self?.image = image
-            }
-        }.resume()
-    }
     
-}
+    func downloadImage(url: NSURL? , contentMode mode: ContentMode = .scaleAspectFit) {
+        contentMode = mode
+        self.image = UIImage(named: "avatar")
+        guard let url = url else {
+            return
+        }
+        if let cachedImage = imageCache.object(forKey: url) as? UIImage {
+            self.image = cachedImage
+        } else {
+            URLSession.shared.dataTask(with: url as URL, completionHandler: { (data, response, error) in
 
+                guard let data = data, error == nil else {
+                    print(error?.localizedDescription ?? "Image loading error")
+                    return
+                }
+                
+                DispatchQueue.main.async{
+                    if let downloadedImage = UIImage(data: data) {
+                        imageCache.setObject(downloadedImage, forKey: url)
+                        self.image = downloadedImage
+                    }
+                }
+            }).resume()
+        }
+    }
+}
