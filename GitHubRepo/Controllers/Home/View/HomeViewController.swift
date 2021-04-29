@@ -15,42 +15,53 @@ class HomeViewController: UIViewController {
     
     // MARK:- varoiables
     var homeViewModel = HomeViewModel()
-    
+    lazy var searchBar = UISearchBar(frame: CGRect.zero)
+
     
     // MARK:- main functions
     override func viewDidLoad() {
         super.viewDidLoad()
         tableViewConfig()
+        searchBarConfig()
         loadData()
+
     }
-    
-    
     private func tableViewConfig(){
         tableView.dataSource = self
         tableView.delegate = self
         tableView.registerCellNib(cellClass: RepositryCell.self)
     }
     
+    private func searchBarConfig(){
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.delegate = self
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Repositry"
+        self.navigationItem.searchController = searchController
+        self.definesPresentationContext = true
+    }
+    
+    
     private func loadData(){
         homeViewModel.getDataFromAPI { [weak self] errorMessage in
             if let message = errorMessage {
                 print(message)
             }
-            
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
             }
         }
     }
-    
-    
-    
-    
 
-//    @IBAction func getData(_ sender: Any) {
-//        print(CoreDataManager.shared.fetchAllData())
-//    }
-    
 
 }
 
+
+extension HomeViewController: UISearchControllerDelegate , UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchText = (searchController.searchBar.text ?? "")
+        self.homeViewModel.searchRepositryName(searchText)
+        self.tableView.reloadData()
+    }
+}

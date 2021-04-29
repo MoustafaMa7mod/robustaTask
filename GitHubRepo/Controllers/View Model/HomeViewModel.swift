@@ -10,16 +10,19 @@ import Foundation
 
 class HomeViewModel {
     
-    var repositryArray = [Repository]()
-    
-    func getDataFromAPI(completion: @escaping(String?)-> Void)  {
-        repositryArray = CoreDataManager.shared.fetchAllData() ?? []
+    var repositriesArray = [Repository]()
+    var repositriesArrayFilter = [Repository]()
 
-        if repositryArray.count == 0 {
+    func getDataFromAPI(completion: @escaping(String?)-> Void)  {
+        repositriesArray = CoreDataManager.shared.fetchAllData() ?? []
+        repositriesArrayFilter = repositriesArray
+
+        if repositriesArray.count == 0 {
             Networking.shared.getData { [weak self]loadData in
                 print("load data from api")
                 if loadData {
-                    self?.repositryArray = CoreDataManager.shared.fetchAllData() ?? []
+                    self?.repositriesArray = CoreDataManager.shared.fetchAllData() ?? []
+                    self?.repositriesArrayFilter = self?.repositriesArray ?? []
                     completion(nil)
                 }else{
                     completion("Faild To load Data From API")
@@ -30,12 +33,31 @@ class HomeViewModel {
         
     }
     
+    func searchRepositryName(_ name: String) {
+        self.repositriesArrayFilter.removeAll()
+        if name.count != 0 {
+            for repo in self.repositriesArray {
+                if let repoName = repo.repositoryName {
+                    let range = repoName.lowercased().range(of: name.lowercased(), options: .caseInsensitive, range: nil, locale: nil)
+                    if range != nil {
+                        self.repositriesArrayFilter.append(repo)
+                    }
+                }
+                
+            }
+        }else{
+            for repo in self.repositriesArray {
+                self.repositriesArrayFilter.append(repo)
+            }
+        }
+    }
+    
     func getCountOfRepositryArray() -> Int {
-        return repositryArray.count
+        return repositriesArrayFilter.count
     }
     
     func getDetailsOfEachRepositry(_ index: Int) -> Repository{
-        return repositryArray[index]
+        return repositriesArrayFilter[index]
     }
     
     

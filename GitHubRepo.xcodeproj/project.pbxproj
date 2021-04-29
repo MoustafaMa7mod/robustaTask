@@ -185,7 +185,6 @@
 				23ED7350263989B600146DFC /* RequestTest.swift */,
 				23ED74B5263A189A00146DFC /* NetworkingTest.swift */,
 				23ED74FA263A3D6F00146DFC /* CoreDataManagerTest.swift */,
-				23ED74EF263A3CE500146DFC /* CoreDataConfigurationTest.swift */,
 				23ED731226397E1F00146DFC /* Info.plist */,
 			);
 			path = GitHubRepoTests;
@@ -273,6 +272,7 @@
 		23ED7445263A112900146DFC /* Mockups */ = {
 			isa = PBXGroup;
 			children = (
+				23ED74EF263A3CE500146DFC /* CoreDataConfigurationTest.swift */,
 				23ED7446263A113900146DFC /* MockURLSession.swift */,
 			);
 			path = Mockups;
