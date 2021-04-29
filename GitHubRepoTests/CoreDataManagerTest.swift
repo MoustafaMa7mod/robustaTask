@@ -40,13 +40,13 @@ class CoreDataManagerTest: XCTestCase {
         XCTAssertEqual(repo?.count , 2)
     }
     
-    func test_clear_data_base(){
-        let dataModel = [RepositoryModel(name: "grit", fullName: "mojombo/grit", owner: OwnerModel(name: "mojombo", avatarUrl: "https://avatars.githubusercontent.com/u/1?v=4")) , RepositoryModel(name: "merb-core", fullName: "wycats/merb-core", owner: OwnerModel(name: "wycats", avatarUrl: "https://avatars.githubusercontent.com/u/4?v=4"))]
-        coreDataManager.insertData(dataModel: dataModel)
-        coreDataManager.clearDatabase()
-        let repo = coreDataManager.fetchAllData()
-        XCTAssertNotEqual(repo?.count, 2)
-    }
+//    func test_clear_data_base(){
+//        let dataModel = [RepositoryModel(name: "grit", fullName: "mojombo/grit", owner: OwnerModel(name: "mojombo", avatarUrl: "https://avatars.githubusercontent.com/u/1?v=4")) , RepositoryModel(name: "merb-core", fullName: "wycats/merb-core", owner: OwnerModel(name: "wycats", avatarUrl: "https://avatars.githubusercontent.com/u/4?v=4"))]
+//        coreDataManager.insertData(dataModel: dataModel)
+//        coreDataManager.clearDatabase()
+//        let repo = coreDataManager.fetchAllData()
+//        XCTAssertNotEqual(repo?.count, 2)
+//    }
     
     
    

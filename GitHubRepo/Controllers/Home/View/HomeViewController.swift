@@ -9,18 +9,47 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    
+    // MARK:- outlets
+    @IBOutlet weak var tableView: UITableView!
+    
+    // MARK:- varoiables
+    var homeViewModel = HomeViewModel()
+    
+    
+    // MARK:- main functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        Networking.shared.getData { loadData in
-            print("load data from api")
+        tableViewConfig()
+        loadData()
+    }
+    
+    
+    private func tableViewConfig(){
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.registerCellNib(cellClass: RepositryCell.self)
+    }
+    
+    private func loadData(){
+        homeViewModel.getDataFromAPI { [weak self] errorMessage in
+            if let message = errorMessage {
+                print(message)
+            }
+            
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
         }
-        
-        
     }
+    
+    
+    
+    
 
-    @IBAction func getData(_ sender: Any) {
-        print(CoreDataManager.shared.fetchAllData())
-    }
+//    @IBAction func getData(_ sender: Any) {
+//        print(CoreDataManager.shared.fetchAllData())
+//    }
     
 
 }

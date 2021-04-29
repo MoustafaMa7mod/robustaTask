@@ -18,3 +18,13 @@ struct RepositoryModel: Codable {
         case fullName = "full_name"
     }
 }
+
+struct OwnerModel: Codable {
+    var name: String?
+    var avatarUrl: String?
+    
+    private enum CodingKeys : String, CodingKey {
+        case name = "login"
+        case avatarUrl = "avatar_url"
+    }
+}
