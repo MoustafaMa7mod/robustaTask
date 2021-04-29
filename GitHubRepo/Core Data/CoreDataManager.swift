@@ -40,6 +40,7 @@ class CoreDataManager {
                 let repositoryToStore = Repository(context: backgroundContext!)
                 repositoryToStore.repositoryName = data.name
                 repositoryToStore.repositoryFullName = data.fullName
+                repositoryToStore.repositryDescription = data.description
                 repositoryToStore.ownerName = data.owner?.name
                 repositoryToStore.ownerAvaterUrl = data.owner?.avatarUrl
             }

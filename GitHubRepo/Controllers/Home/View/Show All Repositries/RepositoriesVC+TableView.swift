@@ -9,22 +9,28 @@ import Foundation
 import UIKit
 
 
-extension HomeViewController: UITableViewDataSource , UITableViewDelegate{
+extension RepositoriesViewController: UITableViewDataSource , UITableViewDelegate{
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.homeViewModel.getCountOfRepositryArray()
+        return self.repositoryViewModel.getCountOfRepositryArray()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeue() as RepositryCell
-        let object = self.homeViewModel.getDetailsOfEachRepositry(indexPath.row)
+        let object = self.repositoryViewModel.getDetailsOfEachRepositry(indexPath.row)
         cell.configCell(object)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let data = self.repositoryViewModel.getDetailsOfEachRepositry(indexPath.row)
+        let v
+    }
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 115

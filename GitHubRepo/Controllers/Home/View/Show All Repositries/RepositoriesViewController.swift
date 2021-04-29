@@ -7,14 +7,14 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class RepositoriesViewController: UIViewController {
 
     
     // MARK:- outlets
     @IBOutlet weak var tableView: UITableView!
     
     // MARK:- varoiables
-    var homeViewModel = HomeViewModel()
+    var repositoryViewModel = RepositoryViewModel()
     lazy var searchBar = UISearchBar(frame: CGRect.zero)
 
     
@@ -45,7 +45,7 @@ class HomeViewController: UIViewController {
     
     
     private func loadData(){
-        homeViewModel.getDataFromAPI { [weak self] errorMessage in
+        repositoryViewModel.getDataFromAPI { [weak self] errorMessage in
             if let message = errorMessage {
                 print(message)
             }
@@ -59,10 +59,10 @@ class HomeViewController: UIViewController {
 }
 
 
-extension HomeViewController: UISearchControllerDelegate , UISearchResultsUpdating {
+extension RepositoriesViewController: UISearchControllerDelegate , UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchText = (searchController.searchBar.text ?? "")
-        self.homeViewModel.searchRepositryName(searchText)
+        self.repositoryViewModel.searchRepositryName(searchText)
         self.tableView.reloadData()
     }
 }

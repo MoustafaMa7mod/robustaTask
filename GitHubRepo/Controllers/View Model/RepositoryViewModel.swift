@@ -8,7 +8,7 @@
 import Foundation
 
 
-class HomeViewModel {
+class RepositoryViewModel {
     
     var repositriesArray = [Repository]()
     var repositriesArrayFilter = [Repository]()
