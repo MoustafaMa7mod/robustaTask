@@ -28,7 +28,10 @@ extension RepositoriesViewController: UITableViewDataSource , UITableViewDelegat
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let data = self.repositoryViewModel.getDetailsOfEachRepositry(indexPath.row)
-        let v
+        let viewController = RepositryDetailsViewController.instantiate()
+        viewController.repositoryDetailsViewModel = RepositoryDetailsViewModel(repositryDetails: data)
+        let nav = UINavigationController(rootViewController: viewController)
+        self.present(nav , animated: true)
     }
     
     

@@ -176,7 +176,7 @@
                         <outlet property="ownerName" destination="Ihi-le-MVb" id="pYG-vb-VLy"/>
                         <outlet property="repoDescription" destination="bCp-fj-AsV" id="Fdb-hy-TxG"/>
                         <outlet property="repoFullName" destination="rjM-Dh-5fK" id="T7P-5O-Boy"/>
-                        <outlet property="repoNaeme" destination="Yqj-dW-d6y" id="0CN-2Q-7cW"/>
+                        <outlet property="repoName" destination="Yqj-dW-d6y" id="Ibo-i4-uKo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nue-pE-Uu5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
