@@ -18,6 +18,7 @@ class Request{
     func request(url:URL , headers:[String:String] = ["Accept":"application/json","Content-Type":"application/json"],completion: @escaping (Data?, Error?)-> Void){
         
         var request = URLRequest(url:url,cachePolicy: .reloadIgnoringLocalCacheData)
+        
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
         let task = session.dataTask(with: request) { (data , response, error) in

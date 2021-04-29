@@ -22,7 +22,7 @@ class Networking{
         guard let url = URL(string: URLS.repositoriesURL) else {
             return
         }
-        
+
         Request.shared.request(url: url) { data , error in
             guard error == nil else{
                 completion(false)

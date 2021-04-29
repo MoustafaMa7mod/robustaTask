@@ -8,83 +8,36 @@
 import UIKit
 import CoreData
 
-class CoreDataController {
-    
-    let persistentContainer:NSPersistentContainer
-    var backgroundContext:NSManagedObjectContext!
-    var viewContext:NSManagedObjectContext {
-        return persistentContainer.viewContext
-    }
-
-    init (modelName:String){
-        
-        let bundle = Bundle(for: type(of: self))
-        let modelURL = bundle.url(forResource: modelName, withExtension: "momd")!
-        let managedObjectModel =  NSManagedObjectModel(contentsOf: modelURL)!
-        
-        persistentContainer = NSPersistentContainer(name: modelName,managedObjectModel: managedObjectModel)
-        load(){ [self] in
-            self.backgroundContext = persistentContainer.newBackgroundContext()
-            self.configureContexts()
-        }
-    }
-
-    func configureContexts() {
-        viewContext.automaticallyMergesChangesFromParent = true
-        backgroundContext.automaticallyMergesChangesFromParent = true
-        
-        backgroundContext.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
-        viewContext.mergePolicy = NSMergePolicy.mergeByPropertyStoreTrump
-    }
-
- 
-    func load(completion: (()-> Void)? = nil){
-        persistentContainer.loadPersistentStores{ storeDescription, error in
-            guard error == nil else{
-                fatalError("Can't Load Persistent Stores")
-            }
-             completion? ()
-            
-        }
-        
-    }
-    
-    
-}
-
-
-
 class CoreDataManager {
     
     static let shared = CoreDataManager()
-    let coreDataController = CoreDataController(modelName: "GitHubRepo")
+    let coreDataConfiguration = CoreDataConfiguration(modelName: "GitHubRepo")
     
     /// Fetch All Stored Requests From the Store
     func fetchAll()->[Repository]?{
         let fetchReuest:NSFetchRequest<Repository> = Repository.fetchRequest()
-        let result = try? self.coreDataController.viewContext.fetch(fetchReuest)
+        fetchReuest.returnsObjectsAsFaults = false
+        let result = try? self.coreDataConfiguration.viewContext.fetch(fetchReuest)
         return result
     }
     
     func storeResponse(dataModel:[RepositoryModel]){
-        let backgroundContext = coreDataController.backgroundContext
+        let backgroundContext = coreDataConfiguration.backgroundContext
         removeAll()
         backgroundContext?.perform {
-            let repositoryToStore = Repository(context: self.coreDataController.backgroundContext)
             dataModel.forEach { data in
+                let repositoryToStore = Repository(context: backgroundContext!)
                 repositoryToStore.repositoryName = data.name
                 repositoryToStore.repositoryFullName = data.fullName
                 repositoryToStore.ownerName = data.owner?.name
                 repositoryToStore.ownerAvaterUrl = data.owner?.avatarUrl
             }
-
             self.saveContext()
-
         }
     }
     
     func removeAll(){
-        let backgroundContext = coreDataController.backgroundContext
+        let backgroundContext = coreDataConfiguration.backgroundContext
         backgroundContext?.perform {
             let fetchRequest:NSFetchRequest<NSFetchRequestResult> = Repository.fetchRequest()
             let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
@@ -96,7 +49,7 @@ class CoreDataManager {
     }
     
     fileprivate func saveContext(){
-        let backgroundContext = coreDataController.backgroundContext
+        let backgroundContext = coreDataConfiguration.backgroundContext
         if let backgroundContext = backgroundContext, backgroundContext.hasChanges{
             print("data saved successfully")
             try? backgroundContext.save()

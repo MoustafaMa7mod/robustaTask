@@ -27,6 +27,7 @@
 		23ED74B6263A189A00146DFC /* NetworkingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ED74B5263A189A00146DFC /* NetworkingTest.swift */; };
 		23ED74C2263A1C3100146DFC /* Repository+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ED74C0263A1C3100146DFC /* Repository+CoreDataClass.swift */; };
 		23ED74C3263A1C3100146DFC /* Repository+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ED74C1263A1C3100146DFC /* Repository+CoreDataProperties.swift */; };
+		23ED74DD263A2F3B00146DFC /* CoreDataConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ED74DC263A2F3B00146DFC /* CoreDataConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		23ED74B5263A189A00146DFC /* NetworkingTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingTest.swift; sourceTree = "<group>"; };
 		23ED74C0263A1C3100146DFC /* Repository+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Repository+CoreDataClass.swift"; sourceTree = "<group>"; };
 		23ED74C1263A1C3100146DFC /* Repository+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Repository+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		23ED74DC263A2F3B00146DFC /* CoreDataConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +215,7 @@
 			children = (
 				23ED7456263A119700146DFC /* Data */,
 				23ED7451263A118900146DFC /* CoreDataManager.swift */,
+				23ED74DC263A2F3B00146DFC /* CoreDataConfiguration.swift */,
 				23ED7483263A14FC00146DFC /* GitHubRepo.xcdatamodeld */,
 			);
 			path = "Core Data";
@@ -398,6 +401,7 @@
 				23ED74AF263A170800146DFC /* URLS.swift in Sources */,
 				23ED7493263A163300146DFC /* RepositoryModel.swift in Sources */,
 				23ED7347263988AA00146DFC /* Request.swift in Sources */,
+				23ED74DD263A2F3B00146DFC /* CoreDataConfiguration.swift in Sources */,
 				23ED7485263A14FC00146DFC /* GitHubRepo.xcdatamodeld in Sources */,
 				23ED72FB26397E1E00146DFC /* HomeViewController.swift in Sources */,
 				23ED72F726397E1E00146DFC /* AppDelegate.swift in Sources */,
