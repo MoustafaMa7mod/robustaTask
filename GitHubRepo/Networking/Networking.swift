@@ -23,6 +23,11 @@ class Networking{
             return
         }
 
+        let isNetworkAviaible = InternetConnection.isConnectedToInternet
+        guard isNetworkAviaible == true else {
+            completion(false , "No internet connection.please try again!")
+            return
+        }
         Request.shared.request(url: url) { data , errorMessage in
             guard errorMessage == nil else{
                 completion(false , errorMessage)

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2312CE59263C1F6200EC2BE1 /* RepositoriesVC+Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2312CE58263C1F6200EC2BE1 /* RepositoriesVC+Pagination.swift */; };
+		2312CE5F263C31FD00EC2BE1 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2312CE5E263C31FD00EC2BE1 /* Reachability.swift */; };
+		2312CE67263C322600EC2BE1 /* InternetConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2312CE66263C322600EC2BE1 /* InternetConnection.swift */; };
 		2358D6B6263ACDC700B2FF5C /* RepositryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2358D6B4263ACDC700B2FF5C /* RepositryCell.swift */; };
 		2358D6B7263ACDC700B2FF5C /* RepositryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2358D6B5263ACDC700B2FF5C /* RepositryCell.xib */; };
 		2358D6E5263ACF1900B2FF5C /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2358D6E4263ACF1900B2FF5C /* UITableView+Extensions.swift */; };
@@ -61,6 +63,8 @@
 
 /* Begin PBXFileReference section */
 		2312CE58263C1F6200EC2BE1 /* RepositoriesVC+Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RepositoriesVC+Pagination.swift"; sourceTree = "<group>"; };
+		2312CE5E263C31FD00EC2BE1 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		2312CE66263C322600EC2BE1 /* InternetConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnection.swift; sourceTree = "<group>"; };
 		2358D6B4263ACDC700B2FF5C /* RepositryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositryCell.swift; sourceTree = "<group>"; };
 		2358D6B5263ACDC700B2FF5C /* RepositryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositryCell.xib; sourceTree = "<group>"; };
 		2358D6E4263ACF1900B2FF5C /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
@@ -126,6 +130,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2312CE5D263C31EB00EC2BE1 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				2312CE5E263C31FD00EC2BE1 /* Reachability.swift */,
+				2312CE66263C322600EC2BE1 /* InternetConnection.swift */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
 		2358D6B3263ACDB000B2FF5C /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +265,7 @@
 		23ED73442639887D00146DFC /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				2312CE5D263C31EB00EC2BE1 /* Reachability */,
 				2358D6BE263ACEE900B2FF5C /* Extensions */,
 				23ED74AD263A170800146DFC /* Constant */,
 				23ED73452639888700146DFC /* Request */,
@@ -482,12 +496,14 @@
 				23F34AE2263AF7A5008E6647 /* RepositryDetailsViewController.swift in Sources */,
 				23ED736C26398B1500146DFC /* RequestProtocols.swift in Sources */,
 				23ED74C2263A1C3100146DFC /* Repository+CoreDataClass.swift in Sources */,
+				2312CE67263C322600EC2BE1 /* InternetConnection.swift in Sources */,
 				23ED74AF263A170800146DFC /* URLS.swift in Sources */,
 				23ED7493263A163300146DFC /* RepositoryModel.swift in Sources */,
 				23ED7347263988AA00146DFC /* Request.swift in Sources */,
 				23ED74DD263A2F3B00146DFC /* CoreDataConfiguration.swift in Sources */,
 				2358D6ED263ACFB300B2FF5C /* RepositoriesVC+TableView.swift in Sources */,
 				23ED7485263A14FC00146DFC /* GitHubRepo.xcdatamodeld in Sources */,
+				2312CE5F263C31FD00EC2BE1 /* Reachability.swift in Sources */,
 				23ED72FB26397E1E00146DFC /* RepositoriesViewController.swift in Sources */,
 				2358D703263ADAA900B2FF5C /* UIView.swift in Sources */,
 				23ED72F726397E1E00146DFC /* AppDelegate.swift in Sources */,
