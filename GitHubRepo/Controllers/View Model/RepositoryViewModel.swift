@@ -46,18 +46,33 @@ class RepositoryViewModel {
         repositriesArrayFilter = repositriesArray
     }
     
+    // search with NSPredicate core data
+    func loadDataWithPredicate(_ searchName: String){
+        pageCount = 1
+        self.repositriesArray = CoreDataManager.shared.fetchAllData(NSPredicate(format: "repositoryName CONTAINS[c] %@", "\(searchName)")) ?? []
+        self.repositriesArrayFilter = self.repositriesArray
+    }
+    
     
     //MARK:- search Repositry name
     // search in loaded data about reposity name when start weite in search field list will update and show filter data
     func searchRepositryName(_ name: String) {
+        self.repositriesArrayFilter.removeAll()
         if name.count != 0 {
-            self.repositriesArrayFilter = repositriesArray.filter { (repo: Repository) -> Bool in
-                return repo.repositoryName?.lowercased().contains(name.lowercased()) ?? false
+            for repo in self.repositriesArray {
+                if let repoName = repo.repositoryName {
+                    let range = repoName.lowercased().range(of: name.lowercased(), options: .caseInsensitive, range: nil, locale: nil)
+                    if range != nil {
+                        self.repositriesArrayFilter.append(repo)
+                    }
+                }
+                
             }
         }else{
-            self.repositriesArrayFilter = self.repositriesArray
+            for repo in self.repositriesArray {
+                self.repositriesArrayFilter.append(repo)
+            }
         }
-        
     }
     
     

@@ -22,9 +22,12 @@ class CoreDataManager {
     
     
     // Fetch All repositries from core data
-    func fetchAllData()->[Repository]?{
+    func fetchAllData(_ predicate:NSPredicate?)->[Repository]?{
         let fetchReuest:NSFetchRequest<Repository> = Repository.fetchRequest()
         fetchReuest.returnsObjectsAsFaults = false
+        if let predicate = predicate {
+            fetchReuest.predicate = predicate
+        }
         var result: [Repository]?
         mainContext.performAndWait {
             result = try? self.mainContext.fetch(fetchReuest)
@@ -43,11 +46,11 @@ class CoreDataManager {
             fetchReuest.fetchLimit = pageCount
             fetchReuest.fetchOffset = page*pageCount
         }
-        
         var result: [Repository]?
         mainContext.performAndWait {
             result = try? self.mainContext.fetch(fetchReuest)
         }
+        
         return result
     }
     

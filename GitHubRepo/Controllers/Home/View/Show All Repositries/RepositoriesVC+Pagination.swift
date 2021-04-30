@@ -16,6 +16,11 @@ extension RepositoriesViewController {
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if ((tableView.contentOffset.y + tableView.frame.size.height) >= tableView.contentSize.height){
+            if searchWord.count != 0 {
+                self.repositoryViewModel.loadDataWithPredicate(searchWord)
+                self.tableView.reloadData()
+                return
+            }
             if !isStartPagination{
                 isStartPagination = true
                 self.repositoryViewModel.loadModreData()

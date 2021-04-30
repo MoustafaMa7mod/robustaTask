@@ -17,7 +17,7 @@ class RepositoriesViewController: UIViewController {
     var repositoryViewModel = RepositoryViewModel()
     lazy var searchBar = UISearchBar(frame: CGRect.zero)
     var isStartPagination = false
-    
+    var searchWord: String = ""
     
     // MARK:- main functions
     override func viewDidLoad() {
@@ -73,6 +73,7 @@ class RepositoriesViewController: UIViewController {
 extension RepositoriesViewController: UISearchControllerDelegate , UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchText = (searchController.searchBar.text ?? "")
+        searchWord = searchText
         self.repositoryViewModel.searchRepositryName(searchText)
         self.tableView.reloadData()
     }
