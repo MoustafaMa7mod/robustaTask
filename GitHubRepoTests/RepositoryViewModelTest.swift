@@ -31,13 +31,16 @@ class RepositoryViewModelTest: XCTestCase {
         let count = repositoryViewModel.repositriesArray.count
         if count == 0 {
             var actualData: Bool?
+            var errorMessage: String?
             let exp = expectation(description: "request")
-            Networking.shared.getData { loadData in
+            Networking.shared.getData { loadData , message in
                 actualData = loadData
+                errorMessage = message
                 exp.fulfill()
             }
             waitForExpectations(timeout: 2, handler: nil)
             XCTAssertTrue(actualData!)
+            XCTAssertNil(errorMessage)
 
         }
     }
@@ -57,18 +60,4 @@ class RepositoryViewModelTest: XCTestCase {
         let data = repositoryViewModel.getDetailsOfEachRepositry(0)
         XCTAssertNotNil(data)
     }
-    
-    
-    func test_search_data(){
-        repositoryViewModel.getDataFromAPI { message in
-            
-        }
-        repositoryViewModel.searchRepositryName("grit")
-        XCTAssertEqual(repositoryViewModel.repositriesArrayFilter[0].repositoryName, "grit")
-
-    }
-    
-
-  
-
 }

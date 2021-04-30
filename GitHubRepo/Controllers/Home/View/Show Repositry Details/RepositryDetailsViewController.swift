@@ -35,6 +35,7 @@ class RepositryDetailsViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    // MARK:- show data of each repositry
     private func showRepositryDetails(){
         guard let avterImage = NSURL(string: repositoryDetailsViewModel?.repositryDetails.ownerAvaterUrl ?? "") else {
             return

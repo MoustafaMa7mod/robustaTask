@@ -30,15 +30,20 @@ class NetworkingTest: XCTestCase {
         session.nextData = expectedData
         
         var actualData: Bool?
+        var errorMessage: String?
+
         let exp = expectation(description: "request")
-        networking.getData { loadData in
+        networking.getData { loadData , message in
             actualData = loadData
+            errorMessage = message
             exp.fulfill()
 
         }
         waitForExpectations(timeout: 2, handler: nil)
         XCTAssertTrue(actualData!)
         XCTAssertNotNil(actualData)
+        XCTAssertNil(errorMessage)
+
     }
 
 }

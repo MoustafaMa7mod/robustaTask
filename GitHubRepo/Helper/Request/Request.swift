@@ -15,25 +15,30 @@ class Request{
         self.session = session
     }
 
-    func request(url:URL , headers:[String:String] = ["Accept":"application/json","Content-Type":"application/json"],completion: @escaping (Data?, Error?)-> Void){
+    func request(url:URL , headers:[String:String] = ["Accept":"application/json","Content-Type":"application/json"],completion: @escaping (Data?, String?)-> Void){
         
         var request = URLRequest(url:url,cachePolicy: .reloadIgnoringLocalCacheData)
         
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
         let task = session.dataTask(with: request) { (data , response, error) in
-            if let error = error {
-                completion(nil, error)
+            guard error == nil,
+                let response = response as? HTTPURLResponse else {
+                completion(nil, error?.localizedDescription ?? "Something went wrong!")
                 return
             }
-            
-            guard let data = data else {
-                completion(nil, error)
-                return
-            }
-//            DispatchQueue.main.async {
+            switch response.statusCode {
+            case 200:
+                guard let data = data else {
+                    return
+                }
                 completion(data ,nil)
-//            }
+            case 403:
+                completion(nil, error?.localizedDescription ?? "API rate limit exceed")
+            default:
+                completion(nil, error?.localizedDescription ?? "Something went wrong!")
+                break
+            }
         }
         
         task.resume()

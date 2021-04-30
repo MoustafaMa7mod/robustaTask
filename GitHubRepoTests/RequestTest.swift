@@ -57,18 +57,20 @@ class RequestTest: XCTestCase {
         session.nextData = expectedData
         
         var actualData: Data?
+        var errorMessage: String?
         guard let url = URL(string: URLS.repositoriesURL) else {
             fatalError("URL can't be empty")
         }
         let exp = expectation(description: "request")
          request.request(url: url) { (data ,error) in
-            
             actualData = data
+            errorMessage = error
             exp.fulfill()
         }
          
         waitForExpectations(timeout: 2, handler: nil)
         XCTAssertNotNil(actualData)
+        XCTAssertNil(errorMessage)
     }
 
 

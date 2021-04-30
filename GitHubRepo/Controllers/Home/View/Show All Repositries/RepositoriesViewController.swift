@@ -27,6 +27,8 @@ class RepositoriesViewController: UIViewController {
         loadData()
 
     }
+    
+    // MARK:- table view setting
     private func tableViewConfig(){
         tableView.dataSource = self
         tableView.delegate = self
@@ -34,6 +36,7 @@ class RepositoriesViewController: UIViewController {
         tableView.registerCellNib(cellClass: RepositryCell.self)
     }
     
+    // MARK:- search controller setting
     private func searchBarConfig(){
         let searchController = UISearchController(searchResultsController: nil)
         searchController.delegate = self
@@ -44,22 +47,29 @@ class RepositoriesViewController: UIViewController {
         self.definesPresentationContext = true
     }
     
-    
+    // MARK:- get data to show in table view
      func loadData(){
         repositoryViewModel.getDataFromAPI { [weak self] errorMessage in
             if let message = errorMessage {
-                print(message)
+                DispatchQueue.main.async {
+                    self?.showAlertError(message)
+                }
             }
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
             }
         }
     }
+    
+    private func showAlertError(_ message: String){
+        let alert = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
 
-
+    }
 }
 
-
+// MARK:- start search
 extension RepositoriesViewController: UISearchControllerDelegate , UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchText = (searchController.searchBar.text ?? "")

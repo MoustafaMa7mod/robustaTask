@@ -17,15 +17,15 @@ class Networking{
         self.networkRequest = networkRequest
     }
 
-    func getData(completion: @escaping(Bool) -> Void) {
+    func getData(completion: @escaping(Bool , String?) -> Void) {
         
         guard let url = URL(string: URLS.repositoriesURL) else {
             return
         }
 
-        Request.shared.request(url: url) { data , error in
-            guard error == nil else{
-                completion(false)
+        Request.shared.request(url: url) { data , errorMessage in
+            guard errorMessage == nil else{
+                completion(false , errorMessage)
                 return
             }
             
@@ -33,7 +33,7 @@ class Networking{
             let repositoryModel = self.decode(type: [RepositoryModel].self, data: data)
             CoreDataManager.shared.clearDatabase()
             CoreDataManager.shared.insertData(dataModel: repositoryModel ?? [])
-            completion(true)
+            completion(true , nil)
             
         }
         
