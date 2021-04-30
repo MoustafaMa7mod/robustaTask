@@ -25,8 +25,8 @@ class RepositoryViewModel {
 
         if repositriesArray.count == 0 {
             Networking.shared.getData { [weak self] loadData , errorMessage  in
-                print("load data from api")
                 if loadData {
+                    print("load data from api")
                     self?.repositriesArray = CoreDataManager.shared.fetchPaginationData(self?.pageCount) ?? []
                     self?.repositriesArrayFilter = self?.repositriesArray ?? []
                     completion(nil)

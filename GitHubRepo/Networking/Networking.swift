@@ -17,15 +17,8 @@ class Networking{
         self.networkRequest = networkRequest
     }
 
-    func getData(completion: @escaping(Bool , String?) -> Void) {
-        
+    func getData(completion: @escaping(Bool , String?) -> Void) {        
         guard let url = URL(string: URLS.repositoriesURL) else {
-            return
-        }
-
-        let isNetworkAviaible = InternetConnection.isConnectedToInternet
-        guard isNetworkAviaible == true else {
-            completion(false , "No internet connection.please try again!")
             return
         }
         Request.shared.request(url: url) { data , errorMessage in
