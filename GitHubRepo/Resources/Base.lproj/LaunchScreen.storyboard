@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -11,10 +14,45 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="afa-pM-aGb">
+                                <rect key="frame" x="0.0" y="269" width="414" height="358"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GitHub-Mark" translatesAutoresizingMaskIntoConstraints="NO" id="o8K-P0-V2v">
+                                        <rect key="frame" x="157" y="129" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="gL5-6e-lBU"/>
+                                            <constraint firstAttribute="width" constant="100" id="kSR-tK-kyP"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GitHub_Logo" translatesAutoresizingMaskIntoConstraints="NO" id="7yj-NS-1Es">
+                                        <rect key="frame" x="103.5" y="237" width="207" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="G46-tf-f7W"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="7yj-NS-1Es" firstAttribute="centerX" secondItem="o8K-P0-V2v" secondAttribute="centerX" id="G1R-8a-kbJ"/>
+                                    <constraint firstItem="o8K-P0-V2v" firstAttribute="centerY" secondItem="afa-pM-aGb" secondAttribute="centerY" id="QRF-cW-BIA"/>
+                                    <constraint firstItem="o8K-P0-V2v" firstAttribute="centerX" secondItem="afa-pM-aGb" secondAttribute="centerX" id="g50-R7-MMn"/>
+                                    <constraint firstItem="7yj-NS-1Es" firstAttribute="width" secondItem="afa-pM-aGb" secondAttribute="width" multiplier="1:2" id="mA6-uO-5Kh"/>
+                                    <constraint firstItem="7yj-NS-1Es" firstAttribute="top" secondItem="o8K-P0-V2v" secondAttribute="bottom" constant="8" id="z1W-Nm-nzl"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="afa-pM-aGb" secondAttribute="trailing" id="0AW-7e-aRo"/>
+                            <constraint firstItem="afa-pM-aGb" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="KR9-mT-O52"/>
+                            <constraint firstItem="afa-pM-aGb" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="hhI-fa-yNn"/>
+                            <constraint firstItem="afa-pM-aGb" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="1:2.5" id="kyV-Ja-PsC"/>
+                            <constraint firstItem="afa-pM-aGb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tcf-cW-2n3"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -22,4 +60,11 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="GitHub-Mark" width="32" height="32"/>
+        <image name="GitHub_Logo" width="1000" height="410"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

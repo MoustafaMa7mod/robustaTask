@@ -49,8 +49,7 @@ class RepositoryViewModel {
     // search with NSPredicate core data
     func loadDataWithPredicate(_ searchName: String){
         pageCount = 1
-        self.repositriesArray = CoreDataManager.shared.fetchAllData(NSPredicate(format: "repositoryName CONTAINS[c] %@", "\(searchName)")) ?? []
-        self.repositriesArrayFilter = self.repositriesArray
+        self.repositriesArrayFilter = CoreDataManager.shared.fetchAllData(NSPredicate(format: "repositoryName CONTAINS[c] %@", "\(searchName)")) ?? []
     }
     
     
