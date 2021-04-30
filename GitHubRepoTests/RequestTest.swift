@@ -13,12 +13,11 @@ class RequestTest: XCTestCase {
     var request: Request!
     let session = MockURLSession()
     
-    override func setUp() {
-        super.setUp()
+    override func setUpWithError() throws{
         request = Request(session: session)
     }
-    override func tearDown() {
-        super.tearDown()
+    
+    override func tearDownWithError() throws{
         request = nil
     }
     

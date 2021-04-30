@@ -38,6 +38,7 @@
 		23ED74FB263A3D6F00146DFC /* CoreDataManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ED74FA263A3D6F00146DFC /* CoreDataManagerTest.swift */; };
 		23F34AE2263AF7A5008E6647 /* RepositryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F34AE1263AF7A5008E6647 /* RepositryDetailsViewController.swift */; };
 		23F34AEA263AF867008E6647 /* RepositoryDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F34AE9263AF867008E6647 /* RepositoryDetailsViewModel.swift */; };
+		23F34B15263B8AEE008E6647 /* RepositoryViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F34B14263B8AEE008E6647 /* RepositoryViewModelTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		23ED74FA263A3D6F00146DFC /* CoreDataManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManagerTest.swift; sourceTree = "<group>"; };
 		23F34AE1263AF7A5008E6647 /* RepositryDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositryDetailsViewController.swift; sourceTree = "<group>"; };
 		23F34AE9263AF867008E6647 /* RepositoryDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailsViewModel.swift; sourceTree = "<group>"; };
+		23F34B14263B8AEE008E6647 /* RepositoryViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewModelTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +192,7 @@
 				23ED7350263989B600146DFC /* RequestTest.swift */,
 				23ED74B5263A189A00146DFC /* NetworkingTest.swift */,
 				23ED74FA263A3D6F00146DFC /* CoreDataManagerTest.swift */,
+				23F34B14263B8AEE008E6647 /* RepositoryViewModelTest.swift */,
 				23ED731226397E1F00146DFC /* Info.plist */,
 			);
 			path = GitHubRepoTests;
@@ -492,6 +495,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23ED74FB263A3D6F00146DFC /* CoreDataManagerTest.swift in Sources */,
+				23F34B15263B8AEE008E6647 /* RepositoryViewModelTest.swift in Sources */,
 				23ED7447263A113900146DFC /* MockURLSession.swift in Sources */,
 				23ED731126397E1F00146DFC /* GitHubRepoTests.swift in Sources */,
 				23ED74F0263A3CE500146DFC /* CoreDataConfigurationTest.swift in Sources */,
