@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2312CE59263C1F6200EC2BE1 /* RepositoriesVC+Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2312CE58263C1F6200EC2BE1 /* RepositoriesVC+Pagination.swift */; };
 		2358D6B6263ACDC700B2FF5C /* RepositryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2358D6B4263ACDC700B2FF5C /* RepositryCell.swift */; };
 		2358D6B7263ACDC700B2FF5C /* RepositryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2358D6B5263ACDC700B2FF5C /* RepositryCell.xib */; };
 		2358D6E5263ACF1900B2FF5C /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2358D6E4263ACF1900B2FF5C /* UITableView+Extensions.swift */; };
@@ -59,6 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2312CE58263C1F6200EC2BE1 /* RepositoriesVC+Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RepositoriesVC+Pagination.swift"; sourceTree = "<group>"; };
 		2358D6B4263ACDC700B2FF5C /* RepositryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositryCell.swift; sourceTree = "<group>"; };
 		2358D6B5263ACDC700B2FF5C /* RepositryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositryCell.xib; sourceTree = "<group>"; };
 		2358D6E4263ACF1900B2FF5C /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 			children = (
 				23ED72FA26397E1E00146DFC /* RepositoriesViewController.swift */,
 				2358D6EC263ACFB300B2FF5C /* RepositoriesVC+TableView.swift */,
+				2312CE58263C1F6200EC2BE1 /* RepositoriesVC+Pagination.swift */,
 			);
 			path = "Show All Repositries";
 			sourceTree = "<group>";
@@ -472,6 +475,7 @@
 				23F34AEA263AF867008E6647 /* RepositoryDetailsViewModel.swift in Sources */,
 				2358D6E5263ACF1900B2FF5C /* UITableView+Extensions.swift in Sources */,
 				23ED74C3263A1C3100146DFC /* Repository+CoreDataProperties.swift in Sources */,
+				2312CE59263C1F6200EC2BE1 /* RepositoriesVC+Pagination.swift in Sources */,
 				2358D6F6263AD03600B2FF5C /* RepositoryViewModel.swift in Sources */,
 				23ED74A9263A16E700146DFC /* Networking.swift in Sources */,
 				2358D6B6263ACDC700B2FF5C /* RepositryCell.swift in Sources */,

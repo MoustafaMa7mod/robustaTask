@@ -16,6 +16,8 @@ class RepositoriesViewController: UIViewController {
     // MARK:- varoiables
     var repositoryViewModel = RepositoryViewModel()
     lazy var searchBar = UISearchBar(frame: CGRect.zero)
+    var isStartPagination = false
+    
     
     // MARK:- main functions
     override func viewDidLoad() {
@@ -28,7 +30,6 @@ class RepositoriesViewController: UIViewController {
     private func tableViewConfig(){
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.prefetchDataSource = self
         tableView.tableFooterView = UIView()
         tableView.registerCellNib(cellClass: RepositryCell.self)
     }
