@@ -21,7 +21,7 @@ class CoreDataManager {
     }
     
     
-    /// Fetch All Stored Requests From the Store
+    // Fetch All repositries from core data
     func fetchAllData()->[Repository]?{
         let fetchReuest:NSFetchRequest<Repository> = Repository.fetchRequest()
         fetchReuest.returnsObjectsAsFaults = false
@@ -33,6 +33,7 @@ class CoreDataManager {
         return result
     }
     
+    // Fetch 10 item every scroll time
     func fetchPaginationData(_ page:Int?)->[Repository]?{
         let fetchReuest:NSFetchRequest<Repository> = Repository.fetchRequest()
         fetchReuest.returnsObjectsAsFaults = false
@@ -50,6 +51,8 @@ class CoreDataManager {
         return result
     }
     
+    
+    // insert repositry data in core data form api
     func insertData(dataModel:[RepositoryModel]){
         let backgroundContext = self.backgroundContext
         backgroundContext?.performAndWait {
@@ -65,6 +68,7 @@ class CoreDataManager {
         }
     }
     
+    // remove all data and clear database
     func clearDatabase(){
         let backgroundContext = self.backgroundContext
         backgroundContext?.performAndWait {
@@ -77,6 +81,7 @@ class CoreDataManager {
         
     }
     
+    // save data in cotext
     fileprivate func saveContext(){
         let backgroundContext = self.backgroundContext
         if let backgroundContext = backgroundContext, backgroundContext.hasChanges{

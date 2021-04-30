@@ -17,6 +17,7 @@ struct CoreDataConfiguration {
     var backgroundContext:NSManagedObjectContext!
     var mainContext:NSManagedObjectContext
 
+    // add config to core data to insert in background
     init (){
         persistentContainer = NSPersistentContainer(name: modelName)
         let description = persistentContainer.persistentStoreDescriptions.first
