@@ -8,7 +8,6 @@
 import XCTest
 @testable import GitHubRepo
 
-
 class RepositoryViewModelTest: XCTestCase {
 
     var repositoryViewModel: RepositoryViewModel!
@@ -60,4 +59,24 @@ class RepositoryViewModelTest: XCTestCase {
         let data = repositoryViewModel.getDetailsOfEachRepositry(0)
         XCTAssertNotNil(data)
     }
+    func test_pagination (){
+        repositoryViewModel.loadModreData()
+        XCTAssertEqual(repositoryViewModel.repositriesArrayFilter.count, 10)
+
+    }
+    
+    func test_pagination_with_predicate (){
+        repositoryViewModel.loadDataWithPredicate("grit")
+        XCTAssertEqual(repositoryViewModel.repositriesArrayFilter.count, 1)
+
+    }
+    
+    func test_search_data(){
+        repositoryViewModel.searchRepositryName("grit")
+        XCTAssertEqual(repositoryViewModel.repositriesArrayFilter.count , 0)
+
+    }
+    
+    
+    
 }
