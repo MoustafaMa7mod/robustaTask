@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 
-extension RepositoriesViewController: UITableViewDataSource , UITableViewDelegate{
+extension RepositoriesViewController: UITableViewDataSource , UITableViewDelegate , UITableViewDataSourcePrefetching{
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -34,10 +34,24 @@ extension RepositoriesViewController: UITableViewDataSource , UITableViewDelegat
         self.present(nav , animated: true)
     }
     
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+//        let count = self.repositoryViewModel.getCountOfRepositryArray()
+//
+//        for indexPath in indexPaths {
+//            if (indexPath.row > count - 3) && (count != self.repositoryViewModel.totalResultsCount) {
+//                self.loadData()
+//                DispatchQueue.main.async {
+//                    self.tableView.reloadData()
+//                }
+////                self.tableView.reloadData()
+//                break
+//            }
+//        }
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 115
     }
-  
+    
     
 }

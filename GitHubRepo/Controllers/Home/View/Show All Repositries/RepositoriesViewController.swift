@@ -16,7 +16,6 @@ class RepositoriesViewController: UIViewController {
     // MARK:- varoiables
     var repositoryViewModel = RepositoryViewModel()
     lazy var searchBar = UISearchBar(frame: CGRect.zero)
-
     
     // MARK:- main functions
     override func viewDidLoad() {
@@ -29,6 +28,7 @@ class RepositoriesViewController: UIViewController {
     private func tableViewConfig(){
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.prefetchDataSource = self
         tableView.tableFooterView = UIView()
         tableView.registerCellNib(cellClass: RepositryCell.self)
     }
@@ -44,7 +44,7 @@ class RepositoriesViewController: UIViewController {
     }
     
     
-    private func loadData(){
+     func loadData(){
         repositoryViewModel.getDataFromAPI { [weak self] errorMessage in
             if let message = errorMessage {
                 print(message)

@@ -33,6 +33,23 @@ class CoreDataManager {
         return result
     }
     
+    func fetchPaginationData(_ page:Int?)->[Repository]?{
+        let fetchReuest:NSFetchRequest<Repository> = Repository.fetchRequest()
+        fetchReuest.returnsObjectsAsFaults = false
+        let pageCount = 10
+        
+        if let page = page {
+            fetchReuest.fetchLimit = pageCount
+            fetchReuest.fetchOffset = page*pageCount
+        }
+        
+        var result: [Repository]?
+        mainContext.performAndWait {
+            result = try? self.mainContext.fetch(fetchReuest)
+        }
+        return result
+    }
+    
     func insertData(dataModel:[RepositoryModel]){
         let backgroundContext = self.backgroundContext
         backgroundContext?.performAndWait {
